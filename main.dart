@@ -101,23 +101,20 @@ class _calculaterState extends State<calculater> {
     );
   }
 
-  String res = "", text = "", thina = '', garan = '';
-  int first = 0, second = 0, n = 0;
+  String res = "", text = "";
+  int first = 0, second = 0;
 
   String opp = '';
   void btnclicked(String val) {
     if (val == 'C') {
       res = '';
-      thina = '';
     } else if (val == '+' || val == '-' || val == '*' || val == '/') {
       first = int.parse(text);
       opp = val;
-      thina = thina + val;
       res = '';
     } else if (val == '=') {
       n = 1;
       second = int.parse(text);
-      thina = thina + val;
       if (opp == '+') {
         res = (first + second).toString();
       }
@@ -132,12 +129,10 @@ class _calculaterState extends State<calculater> {
       }
     } else {
       res = text + val;
-      thina = thina + val;
     }
 
     setState(() {
       text = res;
-      garan = thina;
     });
   }
 }
